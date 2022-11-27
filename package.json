@@ -1,0 +1,30 @@
+{
+  "name": "api-socialnetwork",
+  "version": "1.0.0",
+  "description": "social network web application",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KSoto18/API-SocialNetwork.git"
+  },
+  "keywords": [
+    "Social",
+    "Network",
+    "CRUD",
+    "Node",
+    "Mongoose"
+  ],
+  "author": "Khris Soto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KSoto18/API-SocialNetwork/issues"
+  },
+  "homepage": "https://github.com/KSoto18/API-SocialNetwork#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.3"
+  }
+}
