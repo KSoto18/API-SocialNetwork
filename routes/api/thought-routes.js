@@ -23,5 +23,4 @@ router.route('/')
    .delete(deleteThought);
 
 
-
 module.exports = router;
