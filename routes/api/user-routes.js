@@ -15,7 +15,7 @@ const {
 router.route('/')
   .get(getUsers)
   .post(createUser);
-  
+
 
 // Single User Route = /api/users/:userId
 
@@ -23,3 +23,12 @@ router.route('/:userId')
    .get(getSingleUser)
    .put(updateUser)
    .delete(deleteUser);
+
+
+// Route = /api/users/:userId/friends/:friendId
+
+router.route('/:userId/friends/:friendId')
+   .post(addFriend)
+   .delete(removeFriend);
+
+module.exports = router;
