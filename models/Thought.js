@@ -33,21 +33,6 @@ const thoughtSchema = new Schema(
     }
 );
 
-//WORKING ON THIS
-const reactionSchema = new Schema(
-    {
-
-
-    },
-    {
-        toJSON: {
-            getters: true
-        },
-        id: false
-    }
-
-);
-
 
 //virtual reaction count
 
