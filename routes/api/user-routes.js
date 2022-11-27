@@ -9,3 +9,11 @@ const {
     addFriend,
     removeFriend,
 } = require('../../controllers/user-controller');
+
+// Route = /api/users
+
+router.route('/')
+  .get(getUsers)
+  .post(createUser);
+
+
