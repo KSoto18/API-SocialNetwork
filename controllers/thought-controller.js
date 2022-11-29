@@ -67,7 +67,28 @@ const thoughtController = {
 
     },
 
+    // Update a Thought within the Database
     updateThought(req, res) {
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $set: req.params.body },
+            { new: true ,runValidators: true }
+         )
+ 
+         .then(thoughtData => {
+             
+             if(!thoughtData) {
+                 res.status(404).json({message: 'No Thoughts found! What are you thinking?'})
+                 return;
+             }
+ 
+             res.json(thoughtData)
+         })
+           
+         .catch(err => {
+             console.log(err);
+             res.status(500).json(err)
+         })
 
     },
 
