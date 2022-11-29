@@ -17,7 +17,7 @@ const userController = {
      //Find User by ID
      getSingleUser(req, res) {
         User.findOne({
-            _id: req.params.userId
+            _id: $userId
         })
 
         .populate('friends')
@@ -51,7 +51,28 @@ const userController = {
         });
     },
 
+    // Update an existing User within the Database
     updateUser(req, res) {
+        User.findOneAndUpdate(
+           { _id: $userId },
+           { $set: $body },
+           { new: true ,runValidators: true }
+        )
+
+        .then(userData => {
+            
+            if(!userData) {
+                res.status(404).json({message: 'No user found!'})
+                return;
+            }
+
+            res.json(userData)
+        })
+          
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
+        })
 
     },
 
