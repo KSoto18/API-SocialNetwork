@@ -17,7 +17,7 @@ const userController = {
      //Find User by ID
      getSingleUser(req, res) {
         User.findOne({
-            _id: $userId
+            _id: req.params.userId
         })
 
         .populate('friends')
@@ -54,8 +54,8 @@ const userController = {
     // Update an existing User within the Database
     updateUser(req, res) {
         User.findOneAndUpdate(
-           { _id: $userId },
-           { $set: $body },
+           { _id: req.params.userId },
+           { $set: req.params.body },
            { new: true ,runValidators: true }
         )
 
@@ -76,16 +76,36 @@ const userController = {
 
     },
 
+    // Delete an existing User from the Database
+    // Bonus: Delete Thoughts related to that user (Needs Work)
     deleteUser(req, res) {
+        User.findOneAndDelete({
+            _id: req.params.userId
+        })
+
+        .then(userData => {
+            
+            if(!userData) {
+                res.status(404).json({message: 'No user found!'})
+                return;
+            }
+
+            res.json(userData)
+        })
+          
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
+        })
 
     },
 
     addFriend(req, res) {
-
+      //Needs Work
     },
 
     removeFriend(req, res) {
-
+     //Needs Work
     }
 
 };
