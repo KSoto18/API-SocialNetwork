@@ -77,7 +77,7 @@ const userController = {
     },
 
     // Delete an existing User from the Database
-    // Bonus: Delete Thoughts related to that user (Needs Work)
+    // Bonus: Delete Thoughts related to that user (in Progress)
     deleteUser(req, res) {
         User.findOneAndDelete({
             _id: req.params.userId
