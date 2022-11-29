@@ -92,16 +92,35 @@ const thoughtController = {
 
     },
 
+    // Delete an existing Thought within the Database
     deleteThought(req, res) {
+        Thought.findOneAndDelete({
+            _id: req.params.thoughtId
+        })
+
+        .then(thoughtData => {
+            
+            if(!thoughtData) {
+                res.status(404).json({message: 'No Thoughts found! What are you thinking?'})
+                return;
+            }
+
+            res.json(thoughtData)
+        })
+          
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
+        })
 
     },
 
     addReaction(req, res) {
-
+       //Needs Work
     },
 
     removeReaction(req, res) {
-
+      //Needs Work
     }
 };
 
