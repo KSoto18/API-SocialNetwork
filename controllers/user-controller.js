@@ -4,7 +4,7 @@ const userController = {
 
     // Finds all the Users
     getUsers(req, res) {
-        User.find({})
+        User.find()
 
             .then(userData => res.json(userData))
 
@@ -151,3 +151,4 @@ const userController = {
 
 };
 
+module.exports = userController;
