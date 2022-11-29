@@ -4,7 +4,7 @@ const userController = {
 
     // Finds all the Users
     getUsers(req,res) {
-       User.find()
+       User.find({})
 
         .then(userData => res.json(userData))
 
@@ -14,8 +14,29 @@ const userController = {
         });
     },
 
-    getSingleUser(req, res) {
-    
+     //Find User by ID
+     getSingleUser(req, res) {
+        User.findOne({
+            _id: req.params.userId
+        })
+
+        .populate('friends')
+        .populate('thoughts')
+
+        .then(userData => {
+            
+            if(!userData) {
+                res.status(404).json({message: 'No user found!'})
+                return;
+            }
+
+            res.json(userData)
+        })
+          
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
+        })
     },
 
     createUser(req, res) {
