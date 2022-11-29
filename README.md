@@ -6,6 +6,8 @@
 
 This is a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.
 
+<br><br>
+
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
@@ -14,6 +16,7 @@ This is a social network web application where users can share their thoughts, r
 * [License](#license)
 * [Contact](#contact)
 
+<br><br>
 
 ## Installation
 
@@ -24,6 +27,7 @@ To use this application do the following:
 
 If you followed these steps, the application should be ready to go!
 
+<br><br>
 
 ## Usage
 
@@ -37,8 +41,11 @@ To use the application do the following:
 
  ## Links
 
- - [Repository]()
- - [Application Video]()
+ - [Repository](https://github.com/KSoto18/API-SocialNetwork)
+ - [Application Video: User Routes](https://drive.google.com/file/d/1g46BTL1QKiVxaXEwYeTC_sloZR56Ajg7/view)
+ - [Application Video: Thought Routes](https://drive.google.com/file/d/1Ud_AbjPYHhq3EMC9mIqcXbRSRh5FjCb5/view)
+
+<br><br>
 
  ## Sources
   
@@ -46,10 +53,12 @@ To use the application do the following:
   - [Express](https://www.npmjs.com/package/express)
   - [MongooseDB](https://www.npmjs.com/package/mongoose)
 
+<br><br>
 
  ## License
  [MIT](https://choosealicense.com/licenses/mit/)
 
+<br><br>
 
  ## Contact
  For any additional questions you may contact me at: 
