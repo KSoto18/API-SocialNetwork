@@ -39,8 +39,16 @@ const userController = {
         })
     },
 
+    // Add a new User to the Database
     createUser(req, res) {
+        User.create(req.body)
 
+        .then(userData => res.json(userData))
+
+        .catch(err => {
+           console.log(err);
+           res.status(500).json(err);
+        });
     },
 
     updateUser(req, res) {
