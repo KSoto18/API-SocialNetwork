@@ -14,8 +14,9 @@ const thoughtController = {
         });
     },
 
+    // Find a single Thought withing the Database
     getSingleThought(req, res) {
-        User.findOne({
+        Thought.findOne({
             _id: req.params.thoughtId
         })
 
