@@ -2,8 +2,13 @@ const { User, Thought } = require('../models');
 
 const userController = {
 
+    // Finds all the Users
     getUsers(req,res) {
+       User.find()
 
+        .then((user) => res.json(user))
+
+        .catch((err) => res.status(500).json(err));
     },
 
     getSingleUser(req, res) {
