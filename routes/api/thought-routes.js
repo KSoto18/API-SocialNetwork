@@ -17,7 +17,7 @@ router.route('/')
 
 // Single Thought Route = /api/thoughts/
 //needs work
-router.route('/')
+router.route('/:thoughtId')
    .get(getSingleThought)
    .put(updateThought)
    .delete(deleteThought);

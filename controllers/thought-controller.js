@@ -40,10 +40,10 @@ const thoughtController = {
     createThought(req, res) {
         Thought.create(req.body)
 
-            .then(({ _id }) => {
+            .then((thought) => {
                 return User.findOneAndUpdate(
                     { _id: req.body.userId },
-                    { $push: { thoughts: _id } },
+                    { $addToSet: { thoughts: thought._id } },
                     { new: true }
                 )
             })
