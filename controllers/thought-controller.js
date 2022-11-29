@@ -140,8 +140,26 @@ const thoughtController = {
    
 
     removeReaction(req, res) {
-      //Needs Work
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $pull: { reactions: { reactionsId: req.params.reactionsId } } },
+            { new: true ,runValidators: true }
+         )
+ 
+         .then(thoughtData => {
+             
+             if(!thoughtData) {
+                 res.status(404).json({message: 'No Thoughts found! What are you thinking?'})
+                 return;
+             }
+ 
+             res.json(thoughtData)
+         })
+           
+         .catch(err => {
+             console.log(err);
+             res.status(500).json(err)
+         })
     }
 };
 
-module.exports = thoughtController;
