@@ -71,7 +71,7 @@ const thoughtController = {
     updateThought(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $set: req.params.body },
+            { $set: req.body },
             { new: true ,runValidators: true }
          )
  
