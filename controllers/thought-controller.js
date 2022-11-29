@@ -138,7 +138,7 @@ const thoughtController = {
 
     },
    
-
+    // Removes a Reaction from a Thought
     removeReaction(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
