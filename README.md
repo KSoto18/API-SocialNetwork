@@ -9,7 +9,6 @@ This is a social network web application where users can share their thoughts, r
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Demo](#demo)
 * [Links](#links)
 * [Sources](#sources)
 * [License](#license)
@@ -33,19 +32,6 @@ To use the application do the following:
  2. To start the application used the command 'npm start' or 'node server.js'.
  3. After the port is listening open your rest client to visit the routes.
 
-
-<br>
-
- ## Demo
- 
-<br>
-
-  ![Screenshot 1](./)
-<br>
-
-<br>
- 
-  ![Screenshot 2](./)
 
 <br><br>
 
