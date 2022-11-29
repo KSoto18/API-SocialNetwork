@@ -10,6 +10,7 @@ This is a social network web application where users can share their thoughts, r
 * [Installation](#installation)
 * [Usage](#usage)
 * [Demo](#demo)
+* [Links](#links)
 * [Sources](#sources)
 * [License](#license)
 * [Contact](#contact)
@@ -47,6 +48,11 @@ To use the application do the following:
   ![Screenshot 2](./)
 
 <br><br>
+
+ ## Links
+
+ - [Repository]()
+ - [Application Video]()
 
  ## Sources
   
