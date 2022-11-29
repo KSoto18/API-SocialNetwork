@@ -6,12 +6,12 @@ const thoughtController = {
     getThoughts(req, res) {
         Thought.find({})
 
-        .then(thoughtData => res.json(thoughtData))
+            .then(thoughtData => res.json(thoughtData))
 
-        .catch(err => {
-           console.log(err);
-           res.status(500).json(err);
-        });
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });
     },
 
     // Find a single Thought withing the Database
@@ -20,26 +20,50 @@ const thoughtController = {
             _id: req.params.thoughtId
         })
 
-        .populate('reactions')
+            .populate('reactions')
 
-        .then(thoughtData => {
-            
-            if(!thoughtData) {
-                res.status(404).json({message: 'No Thoughts found! What are you thinking?'})
-                return;
-            }
+            .then(thoughtData => {
 
-            res.json(thoughtData)
-        })
-          
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err)
-        })
+                if (!thoughtData) {
+                    res.status(404).json({ message: 'No Thoughts found! What are you thinking?' })
+                    return;
+                }
 
+                res.json(thoughtData)
+            })
+
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err)
+            })
     },
 
+    // Creates a Thought and adds it to a User
     createThought(req, res) {
+        Thought.create(req.body)
+
+            .then(({ _id }) => {
+                return User.findOneAndUpdate(
+                    { _id: req.params.userId },
+                    { $push: { thoughts: _id } },
+                    { new: true }
+                )
+            })
+
+            .then(thoughtData => {
+
+                if (!thoughtData) {
+                    res.status(404).json({ message: 'No User found!' })
+                    return;
+                }
+
+                res.json(thoughtData)
+            })
+
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err)
+            })
 
     },
 
