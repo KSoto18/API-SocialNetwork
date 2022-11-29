@@ -125,8 +125,28 @@ const userController = {
 
     },
 
+    // Remove a Friend from an User, using the Friend's ID
     removeFriend(req, res) {
-        //Needs Work
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $pull: { friends: req.params.friendId } } ,
+            { new: true }
+        )
+
+            .then(userData => {
+
+                if (!userData) {
+                    res.status(404).json({ message: 'No user found!' })
+                    return;
+                }
+
+                res.json(userData)
+            })
+
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err)
+            })
     }
 
 };
