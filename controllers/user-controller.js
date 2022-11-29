@@ -12,7 +12,7 @@ const userController = {
     },
 
     getSingleUser(req, res) {
-
+    
     },
 
     createUser(req, res) {
