@@ -6,9 +6,12 @@ const userController = {
     getUsers(req,res) {
        User.find()
 
-        .then((user) => res.json(user))
+        .then(userData => res.json(userData))
 
-        .catch((err) => res.status(500).json(err));
+        .catch(err => {
+           console.log(err);
+           res.status(500).json(err);
+        });
     },
 
     getSingleUser(req, res) {
