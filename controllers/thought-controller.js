@@ -113,9 +113,31 @@ const thoughtController = {
 
     },
 
+    // Adds a Reaction to a Thought
     addReaction(req, res) {
-       //Needs Work
+        Thought.findOneAndUpdate(
+            { _id: req.params.thoughtId },
+            { $set: { reactions: req.body } },
+            { new: true ,runValidators: true }
+         )
+ 
+         .then(thoughtData => {
+             
+             if(!thoughtData) {
+                 res.status(404).json({message: 'No Thoughts found! What are you thinking?'})
+                 return;
+             }
+ 
+             res.json(thoughtData)
+         })
+           
+         .catch(err => {
+             console.log(err);
+             res.status(500).json(err)
+         })
+
     },
+   
 
     removeReaction(req, res) {
       //Needs Work
